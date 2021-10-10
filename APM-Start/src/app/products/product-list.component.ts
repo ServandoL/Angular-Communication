@@ -31,6 +31,11 @@ export class ProductListComponent implements OnInit {
         );
     }
 
+    onFilterChange(filter: string): void {
+      this.listFilter = filter;
+      this.performFilter(this.listFilter);
+    }
+
     toggleImage(): void {
         this.showImage = !this.showImage;
     }
