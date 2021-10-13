@@ -28,33 +28,35 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   products: IProduct[];
 
   @ViewChild("filterElement") filterElementRef: ElementRef;
-  private _sub: Subscription;
-  private _filterInput: NgModel;
+  @ViewChild(NgModel) filterInput: NgModel;
 
-  get filterInput(): NgModel {
-    return this._filterInput;
-  }
+  // private _sub: Subscription;
+  // private _filterInput: NgModel;
 
-  @ViewChild(NgModel)
-  set filterInput(value: NgModel) {
-    this._filterInput = value;
-    if (this._filterInput && !this._sub) {
-      this._sub = this.filterInput.valueChanges.subscribe(() =>
-        this.performFilter(this.listFilter)
-      );
-    }
-    if (this.filterElementRef) {
-      this.filterElementRef.nativeElement.focus();
-    }
-  }
+  // get filterInput(): NgModel {
+  //   return this._filterInput;
+  // }
+
+  // @ViewChild(NgModel)
+  // set filterInput(value: NgModel) {
+  //   this._filterInput = value;
+  //   if (this._filterInput && !this._sub) {
+  //     this._sub = this.filterInput.valueChanges.subscribe(() =>
+  //       this.performFilter(this.listFilter)
+  //     );
+  //   }
+  //   if (this.filterElementRef) {
+  //     this.filterElementRef.nativeElement.focus();
+  //   }
+  // }
 
   constructor(private productService: ProductService) {}
 
   ngAfterViewInit(): void {
-    // this.filterInput.valueChanges.subscribe(
-    //   () => this.performFilter(this.listFilter)
-    // );
-    // this.filterElementRef.nativeElement.focus();
+    this.filterInput.valueChanges.subscribe(
+      () => this.performFilter(this.listFilter)
+    );
+    this.filterElementRef.nativeElement.focus();
   }
 
   ngOnInit(): void {
