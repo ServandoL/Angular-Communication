@@ -23,7 +23,6 @@ export class CriteriaComponent implements OnInit, AfterViewInit, OnChanges {
     this.valueChange.emit(value); // event payload
   }
 
-
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges):void {
