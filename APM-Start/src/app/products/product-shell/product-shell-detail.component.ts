@@ -16,6 +16,7 @@ export class ProductShellDetailComponent implements OnInit {
     constructor(private productService: ProductService) { }
 
     ngOnInit() {
+      
     }
 
 }
