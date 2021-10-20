@@ -7,7 +7,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, SimpleC
 })
 export class CriteriaComponent implements OnInit, AfterViewInit, OnChanges {
 
-  listFilter: string;
+  listFilter: string = 'cart';
   @Input() displayDetail: boolean;
   @ViewChild("filterElement") filterElementRef: ElementRef;
   @Input() hitCount: number;
