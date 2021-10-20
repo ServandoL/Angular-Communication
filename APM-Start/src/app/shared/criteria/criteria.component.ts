@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'pm-criteria',
@@ -8,7 +8,9 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 export class CriteriaComponent implements OnInit, AfterViewInit {
 
   listFilter: string;
+  @Input() displayDetail: boolean;
   @ViewChild("filterElement") filterElementRef: ElementRef;
+  @Input() hitCount: number;
 
 
   constructor() { }
