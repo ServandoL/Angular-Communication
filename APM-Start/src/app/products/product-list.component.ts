@@ -61,6 +61,10 @@ export class ProductListComponent implements OnInit, AfterViewInit {
   //   this.filterElementRef.nativeElement.focus();
   // }
 
+  onValueChange(value: string): void {
+    this.performFilter(value);
+  }
+
   ngAfterViewInit(): void {
     this.parentListFilter = this.filterComponent.listFilter;
   }
