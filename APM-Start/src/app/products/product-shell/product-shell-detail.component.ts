@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { IProduct } from '../product';
+import { NullAstVisitor } from '@angular/compiler';
 
 @Component({
     selector: 'pm-product-shell-detail',
@@ -9,14 +10,14 @@ import { IProduct } from '../product';
 export class ProductShellDetailComponent implements OnInit {
     pageTitle: string = 'Product Detail';
 
-    get product(): IProduct | null {
-      return this.productService.currentProduct;
-    }
+    product: IProduct | null;
 
     constructor(private productService: ProductService) { }
 
     ngOnInit() {
-      
+      this.productService.selectedProductChanges$.subscribe(
+        selectedProduct => this.product = selectedProduct
+      );
     }
 
 }
